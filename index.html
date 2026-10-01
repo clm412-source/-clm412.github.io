@@ -3,80 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Web Page</title>
+    <title>Chloe Miller - Portfolio</title>
     <style>
-        /* Base styles */
         :root {
-            --bg-color: #f8f9fa;
-            --text-color: #212529;
-            --accent-color: #0d6efd;
+            --primary: #822433; /* Rutgers Scarlet Accent */
+            --primary-hover: #5d1924;
+            --bg-body: #f8f9fa;
+            --bg-card: #ffffff;
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+            --border-color: #e9ecef;
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         header {
-            background-color: #ffffff;
-            border-bottom: 1px solid #e9ecef;
-            padding: 1rem 2rem;
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+            border-left: 6px solid var(--primary);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
-        main {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+        header h1 {
+            font-size: 2.25rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
         }
 
-        .btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
+        header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        header .university {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        section {
+            background-color: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Skills Tag Grid */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background-color: #f1f3f5;
+            color: var(--text-dark);
             padding: 0.5rem 1rem;
-            font-size: 1rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid #dee2e6;
         }
 
-        .btn:hover {
-            background-color: #0b5ed7;
+        /* Project Cards */
+        .project-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+
+        .project-links {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 0.75rem;
+        }
+
+        .project-links li {
+            margin-bottom: 0.4rem;
+        }
+
+        .project-links a {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            word-break: break-all;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
         }
 
         footer {
             text-align: center;
-            padding: 2rem;
-            color: #6c757d;
-            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            header, section {
+                padding: 1.5rem 1.25rem;
+            }
+            header h1 {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
+    <div class="container">
+        
+        <!-- Header Section -->
+        <header>
+            <h1>Chloe Miller</h1>
+            <p>Undergraduate Student at <span class="university">Rutgers University</span></p>
+            <p>Major: Marketing | Minor: Psychology</p>
+        </header>
 
-    <main>
-        <h2>Getting Started</h2>
-        <p>This is a modern HTML5 template ready for your content.</p>
-        <button class="btn" id="clickMeBtn">Click Me</button>
-    </main>
+        <!-- Core Skills Section -->
+        <section id="skills">
+            <h2>Key Skills</h2>
+            <div class="skills-grid">
+                <span class="skill-tag">AI Utilization & Prompting</span>
+                <span class="skill-tag">Creative Thinking</span>
+                <span class="skill-tag">Open Communication</span>
+                <span class="skill-tag">Adaptability</span>
+                <span class="skill-tag">Strategic Thinking</span>
+                <span class="skill-tag">Interpersonal & Nonverbal Communication</span>
+                <span class="skill-tag">Comprehensive Academic Research</span>
+            </div>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 My Website. All rights reserved.</p>
-    </footer>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Relevant Projects</h2>
 
-    <script>
-        // Basic JavaScript interaction
-        document.getElementById('clickMeBtn').addEventListener('click', () => {
-            alert('Hello! Your script is working.');
-        });
-    </script>
+            <!-- Project 1 -->
+            <div class="project-card">
+                <h3>Higher Education & Business Career Inquiry</h3>
+                <p>
+                    Conducted a comprehensive research project exploring the post-college pathways available to students, specifically comparing the long-term career outcomes of four-year vs. two-year degrees within the business sector. Iteratively developed a targeted research question to examine how a business major shapes specific career mobility and opportunities, culminating in a detailed inquiry essay.
+                </p>
+                <strong>Research Sources & References:</strong>
+                <ul class="project-links">
+                    <li><a href="https://www.jstor.org/stable/48588568" target="_blank" rel="noopener">JSTOR Research Article (48588568)</a></li>
+                    <li><a href="https://blog.collegevine.com/benefits-of-college#benefits" target="_blank" rel="noopener">CollegeVine - Benefits of College</a></li>
+                    <li><a href="https://www.fbfs.com/learning-center/community-college-vs-university-8-things-to-consider" target="_blank" rel="noopener">FBFS - Community College vs. University</a></li>
+                    <li><a href="http://www.jstor.org/stable/10.7249/j.ctt14bs21q.13" target="_blank" rel="noopener">JSTOR Analysis (ctt14bs21q.13)</a></li>
+                </ul>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <h3>Marketing Career Analysis & AI Tool Evaluation</h3>
+                <p>
+                    Investigated career trajectories for marketing majors, incorporating AI tools to synthesize and critique industry insights. Evaluated AI-generated summaries for accuracy, interacted with AI chat models regarding the future impact of technology on marketing roles, and conducted professional networking outreach via LinkedIn to connect with active PR and marketing leaders.
+                </p>
+                <strong>Project Resources & AI Logs:</strong>
+                <ul class="project-links">
+                    <li><a href="https://teakmedia.com/blog/why-i-chose-a-career-in-public-relations/" target="_blank" rel="noopener">Teak Media - Why I Chose a Career in Public Relations</a></li>
+                    <li><a href="https://chatgpt.com/s/t_69d42e082f4c819184c3756592cafc0e" target="_blank" rel="noopener">ChatGPT Conversation Log 1</a></li>
+                    <li><a href="https://chatgpt.com/s/t_69d46305d60481919ffd1405ebb5c5c8" target="_blank" rel="noopener">ChatGPT Conversation Log 2</a></li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; Chloe Miller. All rights reserved.</p>
+        </footer>
+
+    </div>
+
 </body>
 </html>
